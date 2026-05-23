@@ -10,6 +10,8 @@ function App() {
   return (
     <>
       <h1 className='text-left font-bold underline text-3xl'>heehee</h1>
+
+      <button className='bg-primary flex p-4 justify-center align-center text-mutedText border-borderColor border-2 hover:bg-primaryLight '>Human Nature</button>
     </>
   )
 }
