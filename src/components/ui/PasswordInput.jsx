@@ -25,8 +25,9 @@ export default function PasswordInput({
             border-borderColor
             rounded-xl
             px-4
-            py-3
+            py-2
             pr-12
+            transition-colors duration-200 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20
             
           "
         />
@@ -40,9 +41,10 @@ export default function PasswordInput({
             top-1/2
             -translate-y-1/2
             
+            
           "
         >
-          {show ? <EyeOff size={20} /> : <Eye size={20} />}
+          {show ? <EyeOff size={18} color="#94A3B8" /> : <Eye size={18} color="#94A3B8" />}
         </button>
       </div>
     </div>
