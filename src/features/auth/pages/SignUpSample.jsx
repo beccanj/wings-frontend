@@ -10,7 +10,7 @@ import google from '../../../assets/buttons/material-icon-theme_google.svg'
 import Buttons from '../../../components/ui/Buttons'
 import { Link } from 'react-router-dom'
 
-const SignUp = () => {
+const SignUpSample = () => {
     return (
         // Changed p-10 to p-4 on mobile so it doesn't overflow screen edges
         <section className='flex justify-center items-center bg-pageBg p-4 md:p-10 min-h-screen'>
@@ -104,4 +104,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default SignUpSample

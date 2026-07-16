@@ -17,18 +17,18 @@ const AuthLayout = ({ title, subTitle, children, footerText, footerLink, footerL
             {/* Changed w-xl to w-full max-w-xl so it scales down on mobile */}
             <div className='border-borderColor/30 border-2 shadow-[0_1px_4.5px_rgba(0,0,0,0.15)] rounded-[20px] px-4 md:px-7 py-4 flex flex-col items-start justify-start w-full max-w-xl bg-white'>
 
-                <div className='pb-5 py-4 flex justify-center items-center text-primary font-bold text-3xl w-full font-momo'>
-                    wings
+                <div className='pb-5 py-4 flex justify-center items-center text-primary font-bold text-3xl w-full '>
+                    WINGS
                 </div>
 
-                <div className='flex flex-col gap-2 '>
+                <div className='flex flex-col gap-1.5 '>
                     <p className="font-bold text-bodyText text-xl">{title}</p>
                     <p className="text-subBody text-base">{subTitle}</p>
                 </div>
 
-                <form className='mt-5 w-full' action="">
+                <div className='mt-5 w-full' >
                     {children}
-                </form>
+                </div>
 
                 <div className="absolute top-0 right-0"></div>
 
@@ -37,9 +37,9 @@ const AuthLayout = ({ title, subTitle, children, footerText, footerLink, footerL
 
                 {showSocial && (<div className="flex flex-col w-full">
                     <div className="flex flex-row justify-between items-center gap-4 mt-8">
-                        <div className="w-full border border-borderColor border-b"></div>
+                        <div className="w-full border border-borderColor  border-b"></div>
                         <p className="text-subBody text-sm font-bold tracking-[1.2px]">OR</p>
-                        <div className="w-full border border-borderColor border-b"></div>
+                        <div className="w-full border border-borderColor  border-b"></div>
                     </div>
 
                     {/* Changed to flex-col on mobile and removed fixed pixel widths (w-63.75) */}
