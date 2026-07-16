@@ -30,6 +30,7 @@ const ForgotPassword = () => {
     const {
         values,
         errors,
+        loading,
         handleChange,
         handleSubmit,
     } = useFormValidation(
@@ -39,10 +40,19 @@ const ForgotPassword = () => {
         },
         validateForgotPassword,
         (values, resetForm) => {
-             alert("Michael Jackson says heehee 👀✅");
+             // --simulating an api response--
+            return new Promise(async (resolve) => {
 
-            // API call here
-             resetForm();
+                await new Promise(r => setTimeout(r, 2000));
+
+                alert("Michael Jackson says heehee 👀✅");
+
+                console.log(values);
+
+                resetForm();
+
+                resolve();
+            });
         }
     );
 
@@ -60,6 +70,7 @@ const ForgotPassword = () => {
             footerLinkText="Sign In"
             footerLink="/login"
             showSocial={false}
+            backToLogin={true}
 
         >
 
@@ -78,8 +89,9 @@ const ForgotPassword = () => {
                 <div className="flex justify-center w-full items-center mt-4">
                     <Buttons
                         type='submit'
+                        disabled={loading}
                         className="mb-5 text-sm font-bold w-full shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)]"
-                        text="Send Reset Link"
+                        text={loading ? "Forgeting Password" : "Send Reset Link"}
                         icon={<img src={sendMessage} className="w-4 h-4" />}
                     />
                 </div>

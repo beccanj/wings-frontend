@@ -39,8 +39,8 @@ export default function PasswordInput({
     transition-colors duration-200
     focus:outline-none
     ${error
-              ? "border-red-500 focus:border-red-500 focus:ring-red-200"
-              : "border-borderColor focus:border-primary focus:ring-primary/20"
+              ? "border-red-500 focus-within:ring-2 focus-within:ring-red-200 focus-within:border-red-500"
+              : "border-borderColor focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20"
             }
   `}
         />

@@ -49,6 +49,7 @@ const SignUp = () => { // ----form rules----
     const {
         values,
         errors,
+        loading,
         handleChange,
         handleSubmit,
     } = useFormValidation(
@@ -62,11 +63,20 @@ const SignUp = () => { // ----form rules----
         },
         validateSignup,
         (values, resetForm) => {
-            alert("Michael Jackson says heehee 👀✅");
-            console.log(values);
 
-            // API call here
-              resetForm();
+            // --simulating an api response--
+            return new Promise(async (resolve) => {
+
+                await new Promise(r => setTimeout(r, 2000));
+
+                alert("Michael Jackson says heehee 👀✅");
+
+                console.log(values);
+
+                resetForm();
+
+                resolve();
+            });
         }
     );
 
@@ -112,7 +122,7 @@ const SignUp = () => { // ----form rules----
                     placeholder="example@wings.com"
                 />
 
-                <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 md:mb-3">
+                <div className="flex flex-col md:flex-row justify-between md:items-start gap-4 md:mb-3">
                     <PasswordInput
                         name="password"
                         value={values.password}
@@ -138,14 +148,14 @@ const SignUp = () => { // ----form rules----
                         <span className="block text-sm leading-4 text-bodyText mt-3 md:m-0">
                             I agree to the{" "}
                             <Link
-                                to="/terms"
+                                to="/"
                                 className="font-semibold text-primary hover:underline"
                             >
                                 Terms and Conditions
                             </Link>{" "}
                             and{" "}
                             <Link
-                                to="/privacy"
+                                to="/"
                                 className="font-semibold text-primary hover:underline"
                             >
                                 Privacy Policy
@@ -160,9 +170,12 @@ const SignUp = () => { // ----form rules----
                 <div className="flex justify-center w-full items-center mt-4">
                     <Buttons
                         type="submit"
+                        disabled={loading}
+                        text={loading ? "Signing Up..." : "Sign Up"}
                         className="mb-5 text-sm font-bold w-full shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)]"
-                        text="Sign Up"
-                        icon={<img src={arrowRight} className="w-4 h-4" />}
+                        icon={!loading && (
+                            <img src={arrowRight} className="w-4 h-4" alt="" />
+                        )}
                     />
                 </div>
 

@@ -22,18 +22,20 @@ export default function PhoneInputField({
             </label>
 
             <div
-                className={`     
-          flex
-          overflow-hidden
-          rounded-[8px]
-          border
-          border-borderColor
-          bg-inputBg
-         ${error
-                        ? "border-red-500 focus:border-red-500 focus:ring-red-200"
-                        : "border-borderColor focus:border-primary focus:ring-primary/20 mb-3"
+                className={`
+        flex
+        overflow-hidden
+        rounded-[8px]
+        border
+        bg-inputBg
+        transition-all
+        duration-200
+
+        ${error
+                        ? "border-red-500 focus-within:ring-2 focus-within:ring-red-200 focus-within:border-red-500"
+                        : "border-borderColor focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 mb-3"
                     }
-        `}
+    `}
             >
                 {/* Country Code */}
                 <select
@@ -49,8 +51,9 @@ export default function PhoneInputField({
             px-4
             py-3
             text-sm
-            outline-none
             appearance-none
+            outline-none
+            focus:outline-none
             cursor-pointer
 
             
@@ -77,6 +80,7 @@ export default function PhoneInputField({
             px-4
             text-sm
             outline-none
+            focus:outline-none
             
           "
                 />

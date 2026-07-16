@@ -3,6 +3,7 @@ import { useState } from "react";
 const useFormValidation = (initialValues, validate, onSubmit) => {
     const [values, setValues] = useState(initialValues);
     const [errors, setErrors] = useState({});
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -20,7 +21,7 @@ const useFormValidation = (initialValues, validate, onSubmit) => {
 
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const validationErrors = validate(values);
@@ -28,13 +29,20 @@ const useFormValidation = (initialValues, validate, onSubmit) => {
         setErrors(validationErrors);
 
         if (Object.keys(validationErrors).length === 0) {
-            onSubmit(values, resetForm);
+            setLoading(true);
+
+            try {
+                await onSubmit(values, resetForm);
+            } finally {
+                setLoading(false);
+            }
         }
     };
 
     return {
         values,
         errors,
+        loading,
         handleChange,
         handleSubmit,
         resetForm,

@@ -9,15 +9,21 @@ import google from '../../../assets/buttons/material-icon-theme_google.svg'
 
 import Buttons from '../../../components/ui/Buttons'
 import { Link } from "react-router-dom";
+import { ArrowLeft } from 'lucide-react'
 
-const AuthLayout = ({ title, subTitle, children, footerText, footerLink, footerLinkText, showSocial = true, }) => {
+const AuthLayout = ({ title, subTitle, children, footerText, footerLink, footerLinkText, showSocial = true, backToLogin = false, }) => {
     return (
         // Changed p-10 to p-4 on mobile so it doesn't overflow screen edges
         <section className='flex justify-center items-center bg-pageBg p-4 md:p-10 min-h-screen'>
             {/* Changed w-xl to w-full max-w-xl so it scales down on mobile */}
             <div className='border-borderColor/30 border-2 shadow-[0_1px_4.5px_rgba(0,0,0,0.15)] rounded-[20px] px-4 md:px-7 py-4 flex flex-col items-start justify-start w-full max-w-xl bg-white'>
+                {backToLogin && (<div className="flex justify-start gap-1 items-center">
+                    <ArrowLeft className="w-6 h-6" />
+                    <Link to='/login' className="text-mutedText text-sm">Back To Login</Link>
+                </div>)}
 
-                <div className='pb-5 py-4 flex justify-center items-center text-primary font-bold text-3xl w-full '>
+
+                <div className='pb-5  flex justify-center items-center text-primary font-bold text-3xl w-full '>
                     WINGS
                 </div>
 

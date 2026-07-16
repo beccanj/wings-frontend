@@ -28,20 +28,31 @@ const Login = () => {
     const {
         values,
         errors,
+        loading,
         handleChange,
         handleSubmit,
     } = useFormValidation(
         {
             fullName: "",
             password: "",
-            
+
         },
         validateLogin,
         (values, resetForm) => {
-            alert("Michael Jackson says heehee 👀✅");
 
-            // API call here
-             resetForm();
+            return new Promise(async (resolve) => {
+
+                await new Promise(r => setTimeout(r, 2000));
+
+                alert("Michael Jackson says heehee 👀✅");
+
+                console.log(values);
+
+                resetForm();
+
+                resolve();
+            });
+
         }
     );
     return (
@@ -80,8 +91,9 @@ const Login = () => {
                 <div className="flex justify-center w-full items-center mt-4">
                     <Buttons
                         type='submit'
+                        disabled={loading}
                         className="mb-5 text-sm font-bold w-full shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)]"
-                        text="Log In"
+                        text={loading ? "Logging In..." : "Log In"}
                         icon={<img src={arrowRight} className="w-4 h-4" />}
                     />
                 </div>
