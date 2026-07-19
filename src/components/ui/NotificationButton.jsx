@@ -1,4 +1,4 @@
-import { Bell } from "lucide-react";
+import bell from '../../assets/buttons/bell.svg'
 
 export default function NotificationButton({
     count = 0,
@@ -15,10 +15,11 @@ export default function NotificationButton({
                 hover:bg-gray-100
             "
         >
-            <Bell
+            {/* <Bell
                 size={21}
                 className="text-gray-600"
-            />
+            /> */}
+            <img src={bell} alt="Notification Bell" />
 
             {count > 0 && (
                 <span
@@ -29,7 +30,7 @@ export default function NotificationButton({
                         h-2.5
                         w-2.5
                         rounded-full
-                        bg-red-500
+                        bg-[#BA1A1A]
                     "
                 />
             )}

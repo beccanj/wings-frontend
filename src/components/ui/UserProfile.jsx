@@ -1,4 +1,6 @@
 import { ChevronDown } from "lucide-react";
+import becca from '../../assets/beccaprofile.png'
+
 
 export default function UserProfile({
     name,
@@ -21,33 +23,33 @@ export default function UserProfile({
 
             <div className="hidden md:block text-right">
 
-                <h3 className="text-sm font-semibold text-gray-800">
+                <h3 className="text-sm font-semibold text-bodyText">
                     {name}
                 </h3>
 
-                <p className="text-[11px] uppercase tracking-wider text-gray-500">
+                <p className="text-[10px] font-semibold uppercase tracking-[1px] text-[#3e4946]">
                     {role}
                 </p>
 
             </div>
 
             <img
-                src={image}
+                src={becca}
                 alt={name}
                 className="
                     h-11
                     w-11
                     rounded-full
                     border-2
-                    border-primary
+                    border-primaryLight
                     object-cover
                 "
             />
 
-            <ChevronDown
+            {/* <ChevronDown
                 size={16}
                 className="hidden md:block text-gray-400"
-            />
+            /> */}
 
         </button>
     );

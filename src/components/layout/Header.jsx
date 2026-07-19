@@ -4,8 +4,6 @@ import NotificationButton from "../ui/NotificationButton";
 import MessageButton from "../ui/MessageButton";
 import UserProfile from "../ui/UserProfile";
 
-
-
 export default function Header({
     sidebarOpen,
     setSidebarOpen,
@@ -30,9 +28,10 @@ export default function Header({
                     items-center
                     justify-between
                     gap-4
-                    px-4
-                    md:px-8
-                    py-4
+                    px-6
+                    py-1.5
+                    md:py-3
+                    md:px-12
                 "
             >
 
@@ -71,16 +70,21 @@ export default function Header({
                     className="
                         flex
                         items-center
-                        gap-2
+                        justify-end
+                        
+                        gap-1
                         md:gap-4
                     "
                 >
+                    <div className="flex items-center gap-1">
+                        <NotificationButton
+                            count={2}
+                        />
 
-                    <NotificationButton
-                        count={2}
-                    />
+                        <MessageButton />
+                    </div>
 
-                    <MessageButton />
+
 
                     <div
                         className="
@@ -88,7 +92,7 @@ export default function Header({
                             sm:block
                             h-6
                             w-px
-                            bg-gray-300
+                            bg-[#e1e3e2]
                         "
                     />
 

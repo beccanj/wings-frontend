@@ -27,8 +27,8 @@ export default function SearchBar({
                 className="
                     w-full
                     rounded-full
-                    bg-gray-100
-                    py-3
+                    bg-[#f2f4f3]
+                    py-2
                     pl-11
                     pr-4
                     text-sm

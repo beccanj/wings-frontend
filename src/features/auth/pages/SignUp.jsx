@@ -4,12 +4,18 @@ import InputField from '../../../components/ui/InputField'
 import PasswordInput from '../../../components/ui/PasswordInput'
 import Buttons from '../../../components/ui/Buttons'
 import arrowRight from '../../../assets/buttons/Icon.svg'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import useFormValidation from '../../../hooks/useFormValidation'
 import PhoneInputField from '../../../components/ui/PhoneInputField'
 import Checkbox from '../../../components/ui/Checkbox'
+import { useAuth } from '../components/Authcontext'
 
 const SignUp = () => { // ----form rules----
+    
+
+    const navigate = useNavigate();
+    const { signup } = useAuth();
+
     const validateSignup = (values) => {
         const errors = {};
 
@@ -71,11 +77,15 @@ const SignUp = () => { // ----form rules----
 
                 alert("Michael Jackson says heehee 👀✅");
 
+                signup(values);
+
                 console.log(values);
 
                 resetForm();
 
                 resolve();
+
+                navigate("/dash");
             });
         }
     );

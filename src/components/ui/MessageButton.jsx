@@ -1,4 +1,5 @@
-import { MessageSquare } from "lucide-react";
+import messageButton from '../../assets/buttons/message.svg'
+
 
 export default function MessageButton({
     onClick,
@@ -13,10 +14,9 @@ export default function MessageButton({
                 hover:bg-gray-100
             "
         >
-            <MessageSquare
-                size={21}
-                className="text-gray-600"
-            />
+                    <img src={messageButton} alt="" />
+
         </button>
+
     );
 }

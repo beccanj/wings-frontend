@@ -4,10 +4,15 @@ import InputField from '../../../components/ui/InputField'
 import PasswordInput from '../../../components/ui/PasswordInput'
 import Buttons from '../../../components/ui/Buttons'
 import arrowRight from '../../../assets/buttons/Icon.svg'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import useFormValidation from '../../../hooks/useFormValidation'
+import { useAuth } from '../components/Authcontext'
 
 const Login = () => {
+
+    const navigate = useNavigate();
+    const { login } = useAuth();
+
     const validateLogin = (values) => {
         const errors = {};
 
@@ -46,11 +51,15 @@ const Login = () => {
 
                 alert("Michael Jackson says heehee 👀✅");
 
+                login(values);
+
                 console.log(values);
 
                 resetForm();
 
                 resolve();
+
+                navigate("/dash");
             });
 
         }
