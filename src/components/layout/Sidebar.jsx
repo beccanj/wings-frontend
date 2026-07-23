@@ -19,7 +19,7 @@ import {
 const Sidebar = ({ sidebarOpen, setSidebarOpen, logoTitle, logoSubtitle, sections = [], footer, }) => {
   return (
     <>
-      {/* Mobile backdrop - click to close */}
+      {/* Mobile backdrop  */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 z-40 bg-black/50 lg:hidden"
@@ -37,13 +37,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, logoTitle, logoSubtitle, section
           lg:translate-x-0 lg:sticky lg:top-0 lg:z-30
         `}
       >
-        {/* shrink-0 keeps the logo from ever being squeezed/clipped by the flex column */}
         <div className="shrink-0">
           <SidebarLogo title={logoTitle} subTitle={logoSubtitle} />
         </div>
 
-        {/* min-h-0 + overflow-y-auto lets THIS scroll internally instead of the whole
-            sidebar overflowing/clipping when content is taller than the viewport */}
+        
         <nav className="flex-1 min-h-0 overflow-y-auto pl-6 space-y-2 pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {sections.map((section, index) => (
             <div key={section.label ?? index} className={index > 0 ? "pt-4" : ""}>
