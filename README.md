@@ -59,7 +59,30 @@ To preview the production build locally:
 ```bash
 npm run preview
 ```
+## Got docker ? :p
 
+Build the image⤵︎
+
+```bash
+docker build -t wings-frontend .
+```
+
+Run the container⤵︎
+
+```bash
+docker run -p 3000:80 wings-frontend
+```
+
+Open: http://localhost:3000
+
+## Stop container
+
+Press Ctrl + C then⤵︎
+
+```bash
+docker ps 
+docker stop <container-id>
+```
 
 ## UI Screenshots / GIFs
 
@@ -71,7 +94,7 @@ npm run preview
   <br><br>
   
   <h3>Authentication UI Demo</h3>
-  <video src="./src/assets/screenshots/authentication-demo.mp4" width="96%" autoplay loop muted playsinline></video>
+  <video src="./src/assets/screenshots/authentication-demo.mp4" width="96%" controls></video>
 
 </div>
 
