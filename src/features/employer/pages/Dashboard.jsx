@@ -1,13 +1,40 @@
 import DashboardLayout from "../../../components/DashboardLayout";
 import AdminSidebar from "../../../features/auth/components/AdminSidebar";
+import EmployerSidebar from "../../../features/employer/components/EmployerSidebar";
+import { useAuth } from '../../../features/auth/components/Authcontext'
+import Buttons from "../../../components/ui/Buttons";
+import { Calendar, Download } from "lucide-react";
+import PageHeader from "../../../components/layout/PageHeader";
 
 const Dashboard = () => {
+  const { user } = useAuth();
+  const SidebarForRole = user?.role === "admin" ? EmployerSidebar : AdminSidebar;
+
   return (
-    <DashboardLayout Sidebar={AdminSidebar}>
-      <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>
-      <p className="text-gray-500 mt-1">Here's what's happening today.</p>
+    <DashboardLayout Sidebar={SidebarForRole}>
+
+      <PageHeader
+        title="Dashboard"
+        subtitle="Welcome back. Here is the operational overview for today."
+      >
+        <Buttons
+          text="Last 30 days"
+          variant="outline2"
+          iconPosition="left"
+          icon={<Calendar size={18} />}
+          className="md:px-4 md:py-3 text-sm font-medium rounded-[12px] bg-white border-borderColor"
+        />
+        <Buttons
+          text="Export Report"
+          variant="primary"
+          iconPosition="left"
+          icon={<Download size={18} />}
+          className="md:px-4 md:py-3 text-sm font-medium rounded-[12px]"
+        />
+
+      </PageHeader>
+
     </DashboardLayout>
   );
 };
-
 export default Dashboard;

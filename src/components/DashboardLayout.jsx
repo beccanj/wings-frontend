@@ -23,7 +23,7 @@ export default function DashboardLayout({ Sidebar, children }) {
           setSearch={setSearch}
         />
  
-        <main className="flex-1 p-6 md:p-12">
+        <main className="flex-1 md:px-12 md:py-8 px-6 py-4 ">
           {children}
         </main>
       </div>

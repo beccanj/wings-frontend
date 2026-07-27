@@ -20,6 +20,7 @@ const EmployerSidebar = ({ sidebarOpen, setSidebarOpen }) => {
       setSidebarOpen={setSidebarOpen}
       logoTitle="WINGS Portal"
       logoSubtitle="Employer Dashboard"
+      logosubtitleTracking={false}
       sections={[
         {
           items: [

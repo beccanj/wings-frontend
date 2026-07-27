@@ -11,10 +11,11 @@ import Checkbox from '../../../components/ui/Checkbox'
 import { useAuth } from '../components/Authcontext'
 
 const SignUp = () => { // ----form rules----
-    
+
 
     const navigate = useNavigate();
     const { signup } = useAuth();
+     const [submitError, setSubmitError] = React.useState("");
 
     const validateSignup = (values) => {
         const errors = {};
@@ -66,26 +67,29 @@ const SignUp = () => { // ----form rules----
             confirmPassword: "",
             countryCode: "+254",
             phone: "",
+            role: "admin",
         },
         validateSignup,
         (values, resetForm) => {
 
-            // --simulating an api response--
+            // --no longer simulating api response, this is so reall--
             return new Promise(async (resolve) => {
 
-                await new Promise(r => setTimeout(r, 2000));
+                setSubmitError("");
 
-                alert("Michael Jackson says heehee 👀✅");
+                try {
+                    // Hits /admin/signup or /employer/signup depending on
+                    // the toggle above, then persists the returned user +
+                    // token via AuthContext.
+                    await signup(values, values.role);
 
-                signup(values);
-
-                console.log(values);
-
-                resetForm();
-
-                resolve();
-
-                navigate("/dash");
+                    resetForm();
+                    resolve();
+                    navigate("/dash");
+                } catch (err) {
+                    setSubmitError(err.message || "Signup failed. Please try again.");
+                    resolve();
+                }
             });
         }
     );

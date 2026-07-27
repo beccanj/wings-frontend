@@ -16,7 +16,7 @@ import {
   LogOut,
 } from "lucide-react";
 
-const Sidebar = ({ sidebarOpen, setSidebarOpen, logoTitle, logoSubtitle, sections = [], footer, }) => {
+const Sidebar = ({ sidebarOpen, setSidebarOpen, logoTitle, logoSubtitle, logosubtitleTracking=true, sections = [], footer, }) => {
   return (
     <>
       {/* Mobile backdrop  */}
@@ -38,15 +38,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, logoTitle, logoSubtitle, section
         `}
       >
         <div className="shrink-0">
-          <SidebarLogo title={logoTitle} subTitle={logoSubtitle} />
+          <SidebarLogo title={logoTitle} subTitle={logoSubtitle} subTitleTracking={logosubtitleTracking} />
         </div>
 
         
         <nav className="flex-1 min-h-0 overflow-y-auto pl-6 space-y-2 pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {sections.map((section, index) => (
-            <div key={section.label ?? index} className={index > 0 ? "pt-4" : ""}>
+            <div key={section.label ?? index} className={index > 0 ? "pt-4 border-t border-[#1E3A8A]/10" : ""}>
               {section.label && (
-                <p className="pb-2 pl-1 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                <p className="px-6 py-2 text-xs font-bold uppercase tracking-[1px] text-mutedText">
                   {section.label}
                 </p>
               )}
@@ -66,7 +66,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, logoTitle, logoSubtitle, section
         </nav>
 
         {footer && (
-          <div className="shrink-0 border-t border-gray-200 pl-6 pr-4 py-4 space-y-3">
+          <div className="shrink-0 border-t border-[#1E3A8A]/10 pl-6 pr-4 py-4 space-y-3">
             <SidebarItem icon={footer.icon} label={footer.label} path={footer.path} />
             {footer.version && (
               <p className="pl-1 text-xs text-gray-400">{footer.version}</p>

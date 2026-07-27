@@ -13,12 +13,12 @@ export const AuthProvider = ({ children }) => {
     // Every signup is treated as an admin account for now so the dashboard
     // can be exercised end-to-end. Replace with the role returned by your
     // real signup API later.
-    setUser({ fullName: values.fullName, role: "admin" });
+    setUser({ fullName: values.fullName, role: "employer" });
   };
 
   const login = (values) => {
     // Same idea for login - any successful login becomes an admin session.
-    setUser({ fullName: values.fullName, role: "admin" });
+    setUser({ fullName: values.fullName, role: "employer" });
   };
 
   const logout = () => setUser(null);
