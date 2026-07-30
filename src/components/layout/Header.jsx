@@ -60,6 +60,8 @@ export default function Header({
                         onChange={(e) =>
                             setSearch(e.target.value)
                         }
+                        variant="default"
+                        placeholder="Search applicants or skills..."
                     />
 
                 </div>

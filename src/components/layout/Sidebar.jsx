@@ -16,7 +16,7 @@ import {
   LogOut,
 } from "lucide-react";
 
-const Sidebar = ({ sidebarOpen, setSidebarOpen, logoTitle, logoSubtitle, logosubtitleTracking=true, sections = [], footer, }) => {
+const Sidebar = ({ sidebarOpen, setSidebarOpen, logoTitle, logoSubtitle, logosubtitleTracking=true, sections = [],  }) => {
   return (
     <>
       {/* Mobile backdrop  */}
@@ -46,7 +46,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, logoTitle, logoSubtitle, logosub
           {sections.map((section, index) => (
             <div key={section.label ?? index} className={index > 0 ? "pt-4 border-t border-[#1E3A8A]/10" : ""}>
               {section.label && (
-                <p className="px-6 py-2 text-xs font-bold uppercase tracking-[1px] text-mutedText">
+                <p className="px-4 py-2 text-xs font-bold uppercase tracking-[1px] text-mutedText">
                   {section.label}
                 </p>
               )}
@@ -65,14 +65,14 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, logoTitle, logoSubtitle, logosub
           ))}
         </nav>
 
-        {footer && (
+        {/* {footer && (
           <div className="shrink-0 border-t border-[#1E3A8A]/10 pl-6 pr-4 py-4 space-y-3">
             <SidebarItem icon={footer.icon} label={footer.label} path={footer.path} />
             {footer.version && (
               <p className="pl-1 text-xs text-gray-400">{footer.version}</p>
             )}
           </div>
-        )}
+        )} */}
       </aside>
     </>
   );

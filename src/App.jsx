@@ -10,6 +10,8 @@ import Sidebar from './components/layout/Sidebar';
 import ProtectedRoute from './features/auth/components/Protectedroute';
 import { AuthProvider } from './features/auth/components/Authcontext';
 import Dashboard from './features/employer/pages/Dashboard';
+import Messages from './features/employer/pages/Messages';
+import { RoleProvider } from './features/auth/components/Rolecontext';
 
 function App() {
 
@@ -17,31 +19,18 @@ function App() {
   return (
     <>
 
-      <AuthProvider>
+      <RoleProvider>
         <BrowserRouter>
-
           <Routes>
-
             <Route path="/login" element={<Login />} />
-            <Route path="/forgotpassword" element={<ForgotPassword />} />
-            <Route path="/" element={<SignUp />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/forgotpassword" element={<ForgotPassword />} />
 
-            <Route path="/side" element={<Sidebar />} />
-            <Route
-              path="/dash"
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              }
-            />
-
-
+            <Route path="/dash" element={<Dashboard />} />
+            <Route path="/messages" element={<Messages />} />
           </Routes>
         </BrowserRouter>
-
-      </AuthProvider>
+      </RoleProvider>
 
 
     </>

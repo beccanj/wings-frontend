@@ -7,11 +7,11 @@ import { Calendar, Download } from "lucide-react";
 import PageHeader from "../../../components/layout/PageHeader";
 
 const Dashboard = () => {
-  const { user } = useAuth();
-  const SidebarForRole = user?.role === "admin" ? EmployerSidebar : AdminSidebar;
+ 
+  
 
   return (
-    <DashboardLayout Sidebar={SidebarForRole}>
+    <DashboardLayout >
 
       <PageHeader
         title="Dashboard"
@@ -33,6 +33,9 @@ const Dashboard = () => {
         />
 
       </PageHeader>
+
+     
+
 
     </DashboardLayout>
   );

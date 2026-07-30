@@ -1,22 +1,36 @@
 import { Search } from "lucide-react";
-
-export default function SearchBar({
+const SearchBar = ({
     value,
     onChange,
-    placeholder = "Search applications or candidates...",
-}) {
-    return (
-        <div className="relative flex-1 max-w-xl">
+    placeholder = "Search...",
+    variant = "default",
+}) => {
+    const variants = {
+        default: {
+            background: "bg-[#f2f4f3] focus:bg-white",
+            icon: "text-gray-400",
+            ring: "focus:ring-primary/20",
+        },
+        chat: {
+            background: "bg-white focus:bg-white",
+            icon: "text-[#94A3B8]",
+            ring: "focus:ring-primary/20",
+        },
+    };
 
+    const current = variants[variant];
+
+    return (
+        <div className="relative flex-1 max-w-2xl">
             <Search
                 size={18}
-                className="
+                className={`
                     absolute
                     left-4
-                    top-1/2
+                    top-4.5
                     -translate-y-1/2
-                    text-gray-400
-                "
+                    ${current.icon}
+                `}
             />
 
             <input
@@ -24,10 +38,9 @@ export default function SearchBar({
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
-                className="
+                className={`
                     w-full
                     rounded-full
-                    bg-[#f2f4f3]
                     py-2
                     pl-11
                     pr-4
@@ -35,11 +48,12 @@ export default function SearchBar({
                     outline-none
                     transition
                     focus:ring-2
-                    focus:ring-primary/20
-                    focus:bg-white
-                "
+                    ${current.background}
+                    ${current.ring}
+                `}
             />
-
         </div>
     );
-}
+};
+
+export default SearchBar;

@@ -7,11 +7,12 @@ import arrowRight from '../../../assets/buttons/Icon.svg'
 import { Link, useNavigate } from "react-router-dom"
 import useFormValidation from '../../../hooks/useFormValidation'
 import { useAuth } from '../components/Authcontext'
+import { useRole } from '../components/Rolecontext'
 
 const Login = () => {
 
     const navigate = useNavigate();
-    const { login } = useAuth();
+    const { setRole } = useRole();
 
     const validateLogin = (values) => {
         const errors = {};
@@ -45,20 +46,10 @@ const Login = () => {
         validateLogin,
         (values, resetForm) => {
 
-            return new Promise(async (resolve) => {
-
-                await new Promise(r => setTimeout(r, 2000));
-
-                alert("Michael Jackson says heehee 👀✅");
-
-                login(values);
-
-                console.log(values);
-
+            return new Promise((resolve) => {
+                setRole(values.role);
                 resetForm();
-
                 resolve();
-
                 navigate("/dash");
             });
 
@@ -76,6 +67,34 @@ const Login = () => {
 
         >
             <form className=' w-full' onSubmit={handleSubmit}>
+                {/* toggle to admin/employer for now */}
+                <div className="relative h-0">
+                    <div className="absolute top-0 right-0 flex gap-1">
+                        <button
+                            type="button"
+                            onClick={() => handleChange({ target: { name: "role", value: "admin" } })}
+                            className={`w-5 h-5 flex items-center justify-center rounded text-[10px] font-semibold transition-colors ${values.role === "admin"
+                                    ? "bg-primary text-white"
+                                    : "text-bodyText/30 hover:text-bodyText/60"
+                                }`}
+                        >
+                            A
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={() => handleChange({ target: { name: "role", value: "employer" } })}
+                            className={`w-5 h-5 flex items-center justify-center rounded text-[10px] font-semibold transition-colors ${values.role === "employer"
+                                    ? "bg-primary text-white"
+                                    : "text-bodyText/30 hover:text-bodyText/60"
+                                }`}
+                        >
+                            E
+                        </button>
+                    </div>
+                </div>
+
+
                 <InputField
                     label="Full Name"
                     name='fullName'

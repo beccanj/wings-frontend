@@ -7,7 +7,7 @@ export default function PageHeader({
         <div
             className="flex
                 flex-col
-                gap-5
+                
                 md:flex-row
                 md:items-center
                 md:justify-between "

@@ -9,13 +9,13 @@ import useFormValidation from '../../../hooks/useFormValidation'
 import PhoneInputField from '../../../components/ui/PhoneInputField'
 import Checkbox from '../../../components/ui/Checkbox'
 import { useAuth } from '../components/Authcontext'
+import { useRole } from '../components/Rolecontext'
 
 const SignUp = () => { // ----form rules----
 
 
     const navigate = useNavigate();
-    const { signup } = useAuth();
-     const [submitError, setSubmitError] = React.useState("");
+    const { setRole } = useRole();
 
     const validateSignup = (values) => {
         const errors = {};
@@ -71,25 +71,11 @@ const SignUp = () => { // ----form rules----
         },
         validateSignup,
         (values, resetForm) => {
-
-            // --no longer simulating api response, this is so reall--
-            return new Promise(async (resolve) => {
-
-                setSubmitError("");
-
-                try {
-                    // Hits /admin/signup or /employer/signup depending on
-                    // the toggle above, then persists the returned user +
-                    // token via AuthContext.
-                    await signup(values, values.role);
-
-                    resetForm();
-                    resolve();
-                    navigate("/dash");
-                } catch (err) {
-                    setSubmitError(err.message || "Signup failed. Please try again.");
-                    resolve();
-                }
+            return new Promise((resolve) => {
+                setRole(values.role);
+                resetForm();
+                resolve();
+                navigate("/dash");
             });
         }
     );
@@ -106,7 +92,37 @@ const SignUp = () => { // ----form rules----
 
 
         >
+            {/* Toggle for now */}
+
             <form className=' w-full' onSubmit={handleSubmit}>
+                <div className="relative h-0">
+                    <div className="absolute top-0 right-0 flex gap-1">
+                        <button
+                            type="button"
+                            onClick={() => handleChange({ target: { name: "role", value: "admin" } })}
+                            className={`w-5 h-5 flex items-center justify-center rounded text-[10px] font-semibold transition-colors ${values.role === "admin"
+                                    ? "bg-primary text-white"
+                                    : "text-bodyText/30 hover:text-bodyText/60"
+                                }`}
+                        >
+                            A
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={() => handleChange({ target: { name: "role", value: "employer" } })}
+                            className={`w-5 h-5 flex items-center justify-center rounded text-[10px] font-semibold transition-colors ${values.role === "employer"
+                                    ? "bg-primary text-white"
+                                    : "text-bodyText/30 hover:text-bodyText/60"
+                                }`}
+                        >
+                            E
+                        </button>
+                    </div>
+                </div>
+
+
+
                 <InputField
                     name="fullName"
                     label="Full Name"
@@ -199,7 +215,7 @@ const SignUp = () => { // ----form rules----
 
 
 
-        </AuthLayout>
+        </AuthLayout >
     )
 }
 

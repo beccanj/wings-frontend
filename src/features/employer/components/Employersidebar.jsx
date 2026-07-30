@@ -37,15 +37,16 @@ const EmployerSidebar = ({ sidebarOpen, setSidebarOpen }) => {
             { icon: GraduationCap, label: "Training Resources", path: "/training" },
             { icon: Scale, label: "Rights & Duties", path: "/rights-duties" },
             { icon: ShieldCheck, label: "GBV Support", path: "/gbv-support" },
+            { icon: CircleHelp, label: "Help & Support", path: "/help" },
           ],
         },
       ]}
-      footer={{
-        icon: CircleHelp,
-        label: "Help & Support",
-        path: "/help",
-        version: "v1.0.4 - WINGS Platform",
-      }}
+      // footer={{
+      //   icon: CircleHelp,
+      //   label: "Help & Support",
+      //   path: "/help",
+      //   version: "v1.0.4 - WINGS Platform",
+      // }}
     />
   );
 };
