@@ -62,7 +62,7 @@ const Login = () => {
             subTitle="Sign in to continue"
             footerText="Don't have an account?"
             footerLinkText="Sign up"
-            footerLink="/signup"
+            footerLink="/"
 
 
         >
