@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Sidebar from "../components/layout/Sidebar";
 import Header from "../components/layout/Header";
-import EmployerSidebar from "../features/employer/components/EmployerSidebar";
-import AdminSidebar from "../features/auth/components/AdminSidebar";
+import EmployerSidebar from "../features/employer/components/Employersidebar";
+import AdminSidebar from "../features/auth/components/Adminsidebar";
 import { useRole } from "../features/auth/components/Rolecontext";
 
 

@@ -1,6 +1,5 @@
 import DashboardLayout from "../../../components/DashboardLayout";
-import AdminSidebar from "../../../features/auth/components/AdminSidebar";
-import EmployerSidebar from "../../../features/employer/components/EmployerSidebar";
+
 import { useAuth } from '../../../features/auth/components/Authcontext'
 import Buttons from "../../../components/ui/Buttons";
 import { Calendar, Download } from "lucide-react";
