@@ -13,6 +13,7 @@ import Dashboard from './features/employer/pages/Dashboard';
 import Messages from './features/employer/pages/Messages';
 import { RoleProvider } from './features/auth/components/Rolecontext';
 import Training from './features/employer/pages/Training';
+import Reports from './features/employer/pages/Report';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
             <Route path="/dash" element={<Dashboard />} />
             <Route path="/messages" element={<Messages />} />
             <Route path='/training' element={<Training />} />
+            <Route path='/report' element={<Reports />} />
           </Routes>
         </BrowserRouter>
       </RoleProvider>

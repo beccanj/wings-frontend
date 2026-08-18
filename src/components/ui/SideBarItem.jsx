@@ -5,7 +5,7 @@ const SidebarItem = ({ icon: Icon, label, path }) => {
     <NavLink
       to={path}
       className={({ isActive }) => {
-        console.log(label, path, isActive);
+        
 
         return `
           flex items-center gap-3 rounded-l-[90px] px-4 py-3 text-sm font-medium transition-all duration-200 

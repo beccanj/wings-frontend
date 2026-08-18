@@ -32,7 +32,7 @@ const AdminSidebar = ({ sidebarOpen, setSidebarOpen }) => {
             { icon: BriefcaseBusiness, label: "Job Listings", path: "/list" },
             { icon: MessageSquare, label: "Community Management", path: "/comm" },
             { icon: FileText, label: "Content Management", path: "/conte" },
-            { icon: BarChart3, label: "Reports & Analytics", path: "/analyti" },
+            { icon: BarChart3, label: "Reports & Analytics", path: "/report" },
             { icon: ClipboardList, label: "Audit Logs", path: "/audit" },
             { icon: Flag, label: "Reported Content", path: "/reported" },
             { icon: CircleHelp, label: "Support", path: "/support" },
