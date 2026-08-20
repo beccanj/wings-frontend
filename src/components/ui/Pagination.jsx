@@ -34,11 +34,12 @@ const Pagination = ({
                         key={page}
                         text={page}
                         onClick={() => onPageChange(page)}
-                        variant={isActive ? "primary" : "pagination"}
+                        variant={isActive ? "primary2" : "pagination"}
                         className="
                            
                             rounded-md
-                            
+                            px-4
+                            py-2
                             text-sm
                             font-bold
                         "
