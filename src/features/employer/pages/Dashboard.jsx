@@ -10,6 +10,11 @@ import totalApplicants from '../../../assets/buttons/applicants.svg'
 import hires from '../../../assets/buttons/hires.svg'
 import pendPay from '../../../assets/buttons/pendingpay.svg'
 import JobCard from "../../../components/ui/JobCard";
+import QuickCard from "../../../components/ui/QuickCard";
+import plusSign from '../../../assets/buttons/plusSign.svg'
+import userSearch from '../../../assets/buttons/userSearch.svg'
+import GreenCard from "../../../components/ui/GreenCard";
+
 
 const Dashboard = () => {
   //  mock data jobs
@@ -47,11 +52,8 @@ const Dashboard = () => {
 
 
   ]
-
-
   return (
     <DashboardLayout >
-
       <PageHeader
         title="Welcome back, John!"
         subtitle="Here's what's happening with your recruitment workspace today."
@@ -63,8 +65,6 @@ const Dashboard = () => {
           icon={<img src={calendarIcon} alt="Calendar" />}
           className="bg-primaryLight/30 text-sm text-primary font-semibold rounded-[9999px]"
         />
-
-
       </PageHeader>
       {/* Statistics for employee part enjoy! */}
       <div className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4 ">
@@ -136,16 +136,41 @@ const Dashboard = () => {
         {/* QuickActions RS */}
         <div className="max-w-[282px] w-full">
           <p className="mt-10 mb-5 text-xl font-bold font-manrope">Quick Actions</p>
+
+          <div className="flex flex-col items-center gap-4">
+            <QuickCard
+              background="bg-primary bg-[rgba(255,255,255,0.002)] shadow-[0px_10px_15px_-3px_rgba(0,93,83,0.2),0px_4px_6px_-4px_rgba(0,93,83,0.2)]"
+              icon={plusSign}
+              iconClassName="bg-[#FFFFFF]/20  "
+              textColor="text-white"
+              title="Post a job"
+            />
+            <QuickCard
+              background="bg-[#ffffff] border border-[#bdc9c5]/10"
+              icon={userSearch}
+              iconClassName="bg-primary/10 "
+              textColor="text-black"
+              title="Search Workers"
+            />
+            <GreenCard
+              title="Boost your job visibility by 40%."
+              description="Verified employers get priority placement in worker search results."
+              badge={true}
+              badgeText="Platform Tip"
+              image={false} >
+                <Buttons
+                text="Explore More"
+                variant="pagination"
+                className="bg-white rounded-[12px] w-full text-sm font-semibold text-primary "
+                />
+            </GreenCard>
+
+          </div>
+
+
+
         </div>
-
-
       </div>
-
-
-
-
-
-
     </DashboardLayout>
   );
 };

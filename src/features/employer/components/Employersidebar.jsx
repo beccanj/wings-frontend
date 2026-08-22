@@ -41,12 +41,12 @@ const EmployerSidebar = ({ sidebarOpen, setSidebarOpen }) => {
           ],
         },
       ]}
-      // footer={{
-      //   icon: CircleHelp,
-      //   label: "Help & Support",
-      //   path: "/help",
-      //   version: "v1.0.4 - WINGS Platform",
-      // }}
+      footer={{
+        icon: CircleHelp,
+        label: "Help & Support",
+        path: "/help",
+        version: "v1.0.4 - WINGS Platform",
+      }}
     />
   );
 };
